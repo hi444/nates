@@ -56,7 +56,6 @@ function Index() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -93,7 +92,7 @@ function Index() {
           className="absolute inset-0 h-[120%] w-full object-cover opacity-45"
         />
         <div className="bg-hero-gradient absolute inset-0 opacity-80" />
-        <motion.div style={{ opacity: fade }} className="relative mx-auto w-full max-w-6xl px-6 pt-32">
+        <div className="relative mx-auto w-full max-w-6xl px-6 pt-32">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -141,7 +140,7 @@ function Index() {
               See Instagram
             </a>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Before / After */}
